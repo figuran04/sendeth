@@ -3,31 +3,125 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
+  /* --color-primary: #3b82f6; */
+  --color-primary: rgb(79, 70, 229);
+  --color-secondary: #f59e0b; /* amber-500 */
+  --color-background: #ffffff;
+  --color-text: #111827;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+  --color-gradient-start: #d6dbdc;
+  --color-gradient-end: #ffffff;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* .corner-gradient{
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(45deg, transparent 49%, #3498db 49%, #3498db 51%, transparent 51%),
+              linear-gradient(-45deg, transparent 49%, #3498db 49%, #3498db 51%, transparent 51%);
+  background-size: 50% 50%;
+  background-repeat: no-repeat;
+  background-position: top left, bottom right;
+} */
+
+.corner-gradient {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  background: #f4f4f4;
+}
+
+.corner-gradient::before,
+.corner-gradient::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 5px solid #3498db;
+}
+
+.corner-gradient::before {
+  top: 0;
+  left: 0;
+  border-right: none;
+  border-bottom: none;
+}
+
+.corner-gradient::after {
+  bottom: 0;
+  right: 0;
+  border-left: none;
+  border-top: none;
+}
+
+.box {
+  --b: 5px; /* thickness of the border */
+  --c: red; /* color of the border */
+  --w: 20px; /* width of border */
+  --r: 25px; /* radius */
+
+  padding: var(--b); /* space for the border */
+
+  position: relative;
+  /*Irrelevant code*/
+  width: 200px;
+  height: 100px;
+  box-sizing: border-box;
+  margin: 5px;
+  display: inline-flex;
+  font-size: 30px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.box::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--c, red);
+  padding: var(--b);
+  border-radius: var(--r);
+  -webkit-mask: linear-gradient(0deg, #000 calc(2 * var(--b)), #0000 0) 50%
+      var(--b) / calc(100% - 2 * var(--w)) 100% repeat-y,
+    linear-gradient(-90deg, #000 calc(2 * var(--b)), #0000 0) var(--b) 50%/100%
+      calc(100% - 2 * var(--w)) repeat-x,
+    linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+}
+
+/* === TAILWIND CUSTOM UTILITIES === */
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+  .border-gradient {
+    border-width: 3px;
+    border-style: solid;
+    border-image: linear-gradient(to right, red, black, blue) 1 1 100%;
+  }
+}
+
+@layer components {
+  .gradient-border {
+    position: relative;
+    z-index: 0;
+  }
+
+  .gradient-border::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 2px;
+    background: linear-gradient(to bottom, red, transparent, transparent);
+    border-radius: inherit;
+    z-index: -1;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
   }
 }
