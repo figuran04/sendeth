@@ -4,8 +4,8 @@ import ThemeToggle from "../ui/ThemeToggle"
 const Header = () => {
   return (
     <header className="shadow p-4 flex justify-between items-center">
-      <Link href="/" className="font-bold text-primary font-heading">SendEth</Link>
-      <nav className="space-x-4 text-sm">
+      <Link href="/" className="font-bold text-primary font-heading text-lg">SendErc</Link>
+      <nav className="space-x-4 text-base">
         <ThemeToggle />
       </nav>
     </header>

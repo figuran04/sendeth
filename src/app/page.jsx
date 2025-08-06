@@ -40,8 +40,8 @@ const ConnectPage = () => {
   if (!isMounted) return <LoadingScreen />;
 
   return (
-    <main className="relative min-h-screen px-4 mx-auto py-10 flex flex-col gap-4 max-w-4xl">
-      <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-gradient-radial from-blue-500/30 via-indigo-500/10 to-transparent rounded-full blur-3xl pointer-events-none"></div>
+    <main className="relative px-4 mx-auto py-10 flex flex-col gap-4 max-w-4xl">
+      <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-max-[600px] w-full h-[600px] bg-gradient-radial  dark:from-blue-500/30 from-blue-500/10 via-indigo-500/10 to-transparent rounded-full blur-3xl pointer-events-none"></div>
       {/* <div className="absolute inset-0 bg-gradient-to-br from-purple-500 via-pink-500 to-blue-500 opacity-20 blur-2xl"></div> */}
       <div className="flex flex-col md:flex-row gap-4 justify-center relative z-10">
         <Hero />

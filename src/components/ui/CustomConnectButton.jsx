@@ -41,7 +41,7 @@ const CustomConnectButton = () => {
               <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
                 <button
                   onClick={openChainModal}
-                  className="flex items-center gap-2 justify-center px-3 py-2 text-sm font-medium bg-gray-100 rounded-lg dark:bg-gray-800 dark:text-white hover:ring-2 ring-indigo-400 w-full sm:w-auto"
+                  className="flex items-center gap-2 justify-center px-3 py-2 text-sm font-medium bg-white/10 dark:bg-white/5 backdrop-blur-md border border-white/20 dark:border-white/10 rounded-lg shadow hover:ring-2 ring-indigo-400 w-full sm:w-auto"
                 >
                   {chain.hasIcon && (
                     <img
@@ -56,7 +56,7 @@ const CustomConnectButton = () => {
 
                 <button
                   onClick={openAccountModal}
-                  className="flex items-center gap-2 justify-center px-3 py-2 text-sm font-medium bg-gray-100 rounded-lg dark:bg-gray-800 dark:text-white hover:ring-2 ring-indigo-400 w-full sm:w-auto"
+                  className="flex items-center gap-2 justify-center px-3 py-2 text-sm font-medium bg-white/10 dark:bg-white/5 backdrop-blur-md border border-white/20 dark:border-white/10 rounded-lg shadow hover:ring-2 ring-indigo-400 w-full sm:w-auto"
                 >
                   <span>{account.displayName}</span>
                   <ChevronDown size={16} />
